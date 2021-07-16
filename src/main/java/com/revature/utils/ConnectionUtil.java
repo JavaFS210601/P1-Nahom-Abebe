@@ -22,14 +22,15 @@ public static Connection getConnection() throws SQLException {
 		
 		
 		try {
-			Class.forName("org.postgresql.Driver"); //try to find and return the postgresql Driver Class
+			//try to find and return the postgresql Driver Class
+			Class.forName("org.postgresql.Driver"); 
 		} catch (ClassNotFoundException e) {
 			System.out.println("Class wasn't found :(");
 			e.printStackTrace(); //prints the exception message to the console
 		}
 		
 		
-		String url = "jdbc:postgresql://localhost:5432/postgres?currentSchema=project_one";
+		String url = "jdbc:postgresql://localhost:5432/postgres?currentSchema=employeeRs";
 		String username = "postgres";
 		String password = "password"; 
 		
