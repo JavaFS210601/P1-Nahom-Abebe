@@ -39,7 +39,7 @@ public class LoginControler {
 			
 			//ObjectMapper only works with Strings... (not StringBuilders...)
 			String body = new String(sb); //so we make a new String to hold the StringBuilder content
-			
+			System.out.println(body);
 			//Use the ObjectMapper to read our JSON username/password (which is now a Java String) 
 				//remember the readValue() method of ObjectMapper turns JSON into Java
 			//and put it into a LoginDTO class as fields

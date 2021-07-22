@@ -1,18 +1,18 @@
-const url = 'http://localhost:8084/EmployeeRs/' //I grabbed this base URL from postman
+const url = 'http://localhost:8084/P1-Nahom-Abebe/' //I grabbed this base URL from postman
 //it's also what shows up when you run as server and get your 404 page
 //Eventually, we'll use this base URL and make calls to the server by adding endpoints to it
 
 //add functionality to our button using an event listener
-document.getElementById('getAvengerButton').addEventListener('click', assembleFunc);
+document.getElementById('getReimbursementStatus').addEventListener('click', assembleFunc);
 //so when this button gets clicked, the function called assembleFunc will run
-//we could have used: document.getElementById('getAvengerButton').onClick(assembleFunc);
+//we could have used: document.getElementById('getReimbursementStatus').onClick(assembleFunc);
 
-//this function will get all avengers from our Java server
+//this function will get all reimbursement s from our Java server
 async function assembleFunc() { //async returns a promise (which fetch returns)
 
-    //we will send a fetch request to get our avenger data
+    //we will send a fetch request to get our Reimbursment data
     //await makes the async functions wait until the promise returns with the fetched data
-    let response = await fetch(url + 'reimbursements', {credentials: "include"});
+    let response = await fetch(url + 'Ers_reimbursment', {credentials: "include"});
 
     console.log(response);
 
@@ -22,14 +22,14 @@ async function assembleFunc() { //async returns a promise (which fetch returns)
         let data = await response.json(); //get the JSON data from the response, turn it into JS object
 
 
-        //now, I want to put each avenger into my table
-        for(let reimbursement of data) { //for every avenger in the data variable/object
+        //now, I want to put each reimbursement  into my table
+        for(let reimbursement of data) { //for every reimbursement  in the data variable/object
 
-            console.log(reimbursement); //just for debug, print the avenger in the console
+            console.log(reimbursement); //just for debug, print the reimbursement  in the console
 
             let row = document.createElement("tr"); //create a table row
             let cell = document.createElement("td"); //create a cell for the field
-            cell.innerHTML = reimbursement.reim_id; //fill the cell with avenger data
+            cell.innerHTML = reimbursement.reim_id; //fill the cell with reimbursement  data
             row.appendChild(cell) //this row now has the first cell (av_id)
 
             //the we'll do this^ for each field in the reimbursement model
@@ -67,7 +67,7 @@ async function assembleFunc() { //async returns a promise (which fetch returns)
 
            
             if(reimbursement.ers_users_fk != null){
-                console.log("home came through")
+                console.log("Reimbursment status came")
                 let cel21 = document.createElement("td");
                 cel21.innerHTML = reimbursement.ers_users_fk.ers_user_id;
                 row.appendChild(cel21);
@@ -78,7 +78,7 @@ async function assembleFunc() { //async returns a promise (which fetch returns)
 
 
 
-            document.getElementById("avengerBody").appendChild(row);
+            document.getElementById("reimbursementBody").appendChild(row);
             //so the variable "row" we created alllll the way at the top of the for loop 
             //will be appended to our empty table body in the HTML
 
@@ -87,7 +87,6 @@ async function assembleFunc() { //async returns a promise (which fetch returns)
     }
 
 }
-
 
 
 //login functionality below-------------------------------------
@@ -130,9 +129,44 @@ async function loginFunc() {
     //control flow based on success or failed login
     if(response.status === 200) {
         //this will wipe our login row, and welcome the user
-        document.getElementById("login-row").innerText="Welcome!";
+        let loginSuccess = document.getElementById("login-row");
+        loginSuccess.innerText="Welcome to Employee Reimbursement System (ERS)!";
+        loginSuccess.style.color ="orange";
+        loginSuccess.style.fontSize ="1.75rem";
     } else {
-        document.getElementById("login-row").innerText="Login Failed! Refresh the page!";
+        loginSuccess.innerText="Login Failed! Refresh the page!";
+        loginSuccess.style.color ="red";
+        loginSuccess.style.fontSize ="1.75rem";
+
     }
 
+
+
+    
+
+}
+document.getElementById('addReimbursment').addEventListener('click', addReminursmentToRequest);
+
+
+async function addReminursmentToRequest(event) { 
+        event.preventDefault();
+
+     let res = await fetch(url + 'Ers_reimbursment', {credentials: "include"});
+
+  
+
+    if(res.status === 200) { //if the request is successful...
+        console.log(res); //just to see what comes back for debug
+
+       let data = await res.json(); 
+
+       for(let reimbursement of data) {
+           
+        var x = document.getElementsByTagName("form").value;
+        const myJSON = JSON.stringify(x);
+             
+       }
+
+
+}
 }

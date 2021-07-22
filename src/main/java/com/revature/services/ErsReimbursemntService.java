@@ -10,7 +10,13 @@ import com.revature.models.Ers_reimbursement;
 public class ErsReimbursemntService {
 
 	private Ers_ReimbursmentInterface aDAO = new Ers_ReimbursmentDao();
+	
 	public List<Ers_reimbursement> getAllReimbursment() {
 		return aDAO.getAllReimbursment();
 	}
+	
+	public List<Ers_reimbursement> addReimbursment() {
+		return aDAO.getAllReimbursment();
+	}
+	
 }

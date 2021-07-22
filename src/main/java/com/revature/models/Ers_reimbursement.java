@@ -1,13 +1,14 @@
 package com.revature.models;
 
+
 import java.util.Date;
 
 public class Ers_reimbursement {
 
 	private int reim_id;
 	private int reimb_amount;
-	private Date reimb_submitted;
-	private Date reimb_resolved ;
+	private String reimb_submitted;
+	private String reimb_resolved ;
 	private String reimb_description;
 	private  String reimb_recept ;
 	private int reimb_autor;
@@ -22,7 +23,7 @@ public class Ers_reimbursement {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Ers_reimbursement(int reim_id, int reimb_amount, Date reimb_submitted, Date reimb_resolved,
+	public Ers_reimbursement(int reim_id, int reimb_amount, String reimb_submitted, String reimb_resolved,
 			String reimb_description, String reimb_recept, int reimb_autor, int reimb_reslover, int reimb_status_id,
 			int reimb_type_id, Ers_reimbursment_status ers_reimbursment_status_fk,
 			Ers_reimbursment_type ers_reimbursment_type_fk, Ers_users ers_user_fk) {
@@ -41,7 +42,7 @@ public class Ers_reimbursement {
 		this.ers_reimbursment_type_fk = ers_reimbursment_type_fk;
 		this.ers_user_fk = ers_user_fk;
 	}
-	public Ers_reimbursement(int reimb_amount, Date reimb_submitted, Date reimb_resolved, String reimb_description,
+	public Ers_reimbursement(int reimb_amount, String reimb_submitted, String reimb_resolved, String reimb_description,
 			String reimb_recept, int reimb_autor, int reimb_reslover, int reimb_status_id, int reimb_type_id,
 			Ers_reimbursment_status ers_reimbursment_status_fk, Ers_reimbursment_type ers_reimbursment_type_fk,
 			Ers_users ers_user_fk) {
@@ -161,16 +162,16 @@ public class Ers_reimbursement {
 	public void setReimb_amount(int reimb_amount) {
 		this.reimb_amount = reimb_amount;
 	}
-	public Date getReimb_submitted() {
+	public String getReimb_submitted() {
 		return reimb_submitted;
 	}
-	public void setReimb_submitted(Date reimb_submitted) {
+	public void setReimb_submitted(String reimb_submitted) {
 		this.reimb_submitted = reimb_submitted;
 	}
-	public Date getReimb_resolved() {
+	public String getReimb_resolved() {
 		return reimb_resolved;
 	}
-	public void setReimb_resolved(Date reimb_resolved) {
+	public void setReimb_resolved(String reimb_resolved) {
 		this.reimb_resolved = reimb_resolved;
 	}
 	public String getReimb_description() {

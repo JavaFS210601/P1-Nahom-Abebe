@@ -5,7 +5,7 @@ public class Ers_reimbursment_status {
 	private String  reimb_status;
 	
 	
-	public Ers_reimbursment_status() {
+	public Ers_reimbursment_status(int i, String string, Object object) {
 		super();
 		// TODO Auto-generated constructor stub
 	}

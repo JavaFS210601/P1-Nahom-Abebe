@@ -40,7 +40,7 @@ public class Ers_UsersDao implements  Ers_Users_Interface{
 				Ers_users users = new Ers_users(); //instantiate an empty home object
 				
 				//use the setters to populate its fields
-				users.getErs_user_id();
+				users.getErs_username(name);
 				users.getErs_username(rs.getString("Ers_username"));
 				users.getErs_password(rs.getString("Ers_password"));
 				users.getUser_first_name(rs.getString("User_first_name"));

@@ -40,16 +40,16 @@ protected void doGet(HttpServletRequest req, HttpServletResponse res) throws Ser
 		
 		//Now we want to write some code that will determine where requests get sent.
 		
-		String URI = req.getRequestURI().replace("/EmployeeRs/", "");
+		String URI = req.getRequestURI().replace("/P1-Nahom-Abebe/", "");
 		//getting the request URI, and stripping out the base URL
 		//so we'll just be left with the endpoint (e.g. "avengers", "login") to use in a switch
-		
+		System.out.println(URI);
 		switch(URI) {
 		
 		case "Ers_reimbursment": //adding functionality to make the user have to log in before accessing all avengers
 		
 			//if(req.getSession(false) != null) { //if there is an active Session (which means the user is logged in)
-				ac.getAllReimbursment(res); //doGet all avengers
+				ac.getAllReimbursment(res); //doGet all reimbursment
 			//} else {
 				//res.setStatus(403); //forbidden - they aren't logged in so they can't get the goods
 				
@@ -60,7 +60,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse res) throws Ser
 			
 //          case "Ers_users": 
 //			
-//        	  uc.getAllUsers(res);
+//        	  uc.addReimbursment()
 //			break;
 //			
 //          case "Ers_reimbursment_status": 
@@ -77,6 +77,10 @@ protected void doGet(HttpServletRequest req, HttpServletResponse res) throws Ser
 //		case "Ers_user_role": 
 //			
 //			urc.getAllReimbursment(res);
+//			break;
+			
+//		case "addReimbursment":
+//			ac.addReimbursment(res);
 //			break;
 			
             case "login": 
